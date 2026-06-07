@@ -1,0 +1,38 @@
+# Node
+node_modules/
+/dist/
+.env
+.env.local
+.env.*
+
+# Vite
+.vite
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Build outputs
+dist/
+
+# Misc
+logs/
+coverage/
+coverage-reports/
+
+# Mac
+*.DS_Store
+
+# Lock files (if you wish to ignore them, otherwise remove)
+# package-lock.json
+# yarn.lock
