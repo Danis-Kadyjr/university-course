@@ -1,5 +1,5 @@
 {
-  "name": "figma-react-landing",
+  "name": "university-course",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,9 +9,10 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
-    "dotenv": "^17.4.2",
-    "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

@@ -1,0 +1,13 @@
+node_modules
+dist
+.env
+.env.local
+.DS_Store
+.idea
+work
+outputs
+src/assets/teacher.png
+src/assets/work-bedroom.png
+src/assets/work-exterior.jpg
+src/assets/work-living.jpg
+src/assets/modeling-process.png
