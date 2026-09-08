@@ -2,11 +2,21 @@ import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 import heroInterior from "./assets/hero-interior.png";
-import modelingProcess from "./assets/modeling-process-optimized.jpg";
+import modelingProcess from "./assets/modeling-process-optimized.png";
 import teacherPhoto from "./assets/teacher-optimized.jpg";
+import credentialDocument from "./assets/documen.png";
+
 import workExterior from "./assets/work-exterior-optimized.jpg";
 import workBedroom from "./assets/work-bedroom-optimized.jpg";
 import workLiving from "./assets/work-living-optimized.jpg";
+
+import student1 from "./assets/student/student1.png";
+import student2 from "./assets/student/student2.png";
+import student3 from "./assets/student/student3.png";
+import student4 from "./assets/student/student4.png";
+import student5 from "./assets/student/student5.png";
+import student6 from "./assets/student/student6.png";
+
 import learnBlocks from "./assets/learn-blocks.png";
 import audienceBeginner from "./assets/audience-beginner.png";
 import audienceDesigner from "./assets/audience-designer.png";
@@ -70,11 +80,6 @@ const courseItems = [
   { title: "PBR - материалы" },
   { title: "Рендер" },
   { title: "Пост - обработка" },
-  {
-    title: "Выход на фриланс",
-    caption:
-      "На этом этапе вы сможете брать первые заказы на фрилансе и начать зарабатывать.",
-  },
 ];
 
 const learningSlides = [
@@ -99,6 +104,15 @@ const projects = [
   { title: "Интерьер №1", image: workExterior },
   { title: "Интерьер №2", image: workBedroom },
   { title: "Интерьер №3", image: workLiving },
+];
+
+const studentProjects = [
+  { title: "Кухня-гостиная", image: student1, position: "center 48%" },
+  { title: "Спальня", image: student2, position: "center" },
+  { title: "Гостиная", image: student3, position: "center" },
+  { title: "Общественный интерьер", image: student4, position: "center" },
+  { title: "Столовая", image: student5, position: "70% center" },
+  { title: "Камерная гостиная", image: student6, position: "35% center" },
 ];
 
 const faq = [
@@ -236,6 +250,13 @@ function App() {
           <a href="#program">Содержание курса</a>
           <a href="#faq">Часто задаваемые вопросы</a>
         </nav>
+        <address className="headerContacts">
+          <span>
+            Электронная почта:{" "}
+            <a href="mailto:KadirovDM@corp.knrtu.ru">KadirovDM@corp.knrtu.ru</a>
+          </span>
+          <a href="tel:+79377700430">Тел.: 8 937 770-04-30</a>
+        </address>
       </header>
 
       <section className="hero panel" id="top">
@@ -396,7 +417,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section works" id="works">
+      <section className="section teacher" id="works">
         <h2>Работы преподавателя</h2>
         <div className="workGrid">
           {projects.map((project) => (
@@ -408,43 +429,29 @@ function App() {
         </div>
       </section>
 
-      <section className="panel certificate">
-        <h2>Ваш сертификат после курса</h2>
-        <div className="certificateGrid">
-          <div className="certificateAvatar" aria-hidden="true"></div>
-          <div>
-            <h3>Junior 3D-моделлер</h3>
-          </div>
-          <div className="certificateLabel">Инструменты</div>
-          <div>
-            <div className="tools">
-              <span>
-                <b>▣</b> Autodesk 3d max
-              </span>
-              <span>
-                <b>▣</b> Blender
-              </span>
-              <span>
-                <b>▣</b> ZBrush
-              </span>
-            </div>
-          </div>
-          <div className="certificateLabel">Навыки</div>
-          <ul className="certificateList">
-            <li>Поиск референсов</li>
-            <li>Знание основ трёхмерной графики</li>
-            <li>Создание трёхмерной модели объектов</li>
-            <li>Работа с материалами и текстурами</li>
-            <li>Выстраивание схем освещения</li>
-            <li>Применение реалистичного рендера</li>
-          </ul>
-          <div className="certificateLabel">Проекты</div>
-          <ul className="certificateList">
-            <li>Создание 3d интерьера</li>
-            <li>Настройка освещения</li>
-            <li>Рендер 3d интерьера</li>
-          </ul>
+      <section className="section teacher" id="student-works">
+        <h2>Работы студентов</h2>
+        <div className="studentWorkGrid">
+          {studentProjects.map((project, index) => (
+            <figure key={`${project.title}-${index}`}>
+              <img
+                src={project.image}
+                alt={project.title}
+                style={{ objectPosition: project.position }}
+              />
+              <figcaption>{project.title}</figcaption>
+            </figure>
+          ))}
         </div>
+      </section>
+
+      <section className="panel certificate">
+        <h2>Ваше удостоверение после курса</h2>
+        <img
+          className="credentialImage"
+          src={credentialDocument}
+          alt="Удостоверение о повышении квалификации по программе 3D-визуализация"
+        />
       </section>
 
       <section className="panel faq" id="faq">
@@ -470,16 +477,16 @@ function App() {
         <article className="priceCard">
           <h2>Стоимость курса</h2>
           <ul>
-            <li>Рассрочка на 12 месяцев</li>
+            <li>Рассрочка на 4 месяца</li>
             <li>
-              Студенты могут вернуть до 13% курса, оформив налоговый вычет
+              Занятия проходят раз в неделю, в течение 4 месяцев (64 ак. часов)
             </li>
-            <li>Создание трёхмерной модели объектов</li>
+            <li>Студенты могут вернуть 13% курса, оформив налоговый вычет</li>
           </ul>
           <div className="price">
-            <strong>4000₽</strong>
-            <span>/мес</span>
-            <s>9990₽/мес</s>
+            <span>
+              40000₽/<s>440000₽</s> при единовременной оплате
+            </span>
           </div>
         </article>
 
@@ -547,7 +554,10 @@ function App() {
         <p>
           420015 г. Казань, ул. Карлса Маркса, 68
           <br />
-          Электронная почта: <a href="mailto:office@kstu.ru">office@kstu.ru</a>
+          Электронная почта:{" "}
+          <a href="mailto:KadirovDM@corp.knrtu.ru">KadirovDM@corp.knrtu.ru</a>
+          <br />
+          Тел.: 8 937 770-04-30
         </p>
       </footer>
 
