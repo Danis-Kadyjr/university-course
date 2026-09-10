@@ -55,17 +55,18 @@ GOOGLE_SCRIPT_URL=
 и `TELEGRAM_CHAT_ID`. После добавления переменных сделайте повторный
 production deploy.
 
-## Бесплатный деплой на Cloudflare Pages
+## Бесплатный деплой на Cloudflare Workers
 
-Этот вариант подходит, если домен куплен в REG.RU, а платить за отдельный
-хостинг не хочется. Обработчик `functions/api/lead.js` отправляет заявки в
-Telegram, не раскрывая токен бота в браузере.
+Этот вариант подходит для бесплатного адреса `*.workers.dev` или если домен
+куплен отдельно, а платить за хостинг не хочется. Обработчик
+`functions/api/lead.js` отправляет заявки в Telegram, не раскрывая токен бота
+в браузере.
 
-Настройки проекта в Cloudflare Pages:
+Настройки Git-проекта в Cloudflare Workers:
 
 - Production branch: `main`
 - Build command: `npm run build`
-- Build output directory: `dist`
+- Deploy command: `npx wrangler deploy`
 - Root directory: оставить пустым
 
 После первого деплоя откройте `Settings -> Variables and Secrets` и добавьте
@@ -77,7 +78,7 @@ TELEGRAM_CHAT_ID=
 ```
 
 Затем выполните повторный деплой. Форма использует адрес `/api/lead`, который
-Cloudflare автоматически связывает с файлом `functions/api/lead.js`.
+Worker направляет в обработчик `functions/api/lead.js`.
 
 Для подключения основного домена откройте `Custom domains`, добавьте домен и
 укажите в REG.RU выданные Cloudflare DNS-серверы. HTTPS подключится
