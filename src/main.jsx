@@ -423,7 +423,6 @@ function App() {
           {projects.map((project) => (
             <article key={project.title}>
               <img src={project.image} alt={project.title} />
-              <h3>{project.title}</h3>
             </article>
           ))}
         </div>
